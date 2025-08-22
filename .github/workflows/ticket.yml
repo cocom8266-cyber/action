@@ -1,0 +1,17 @@
+name: example
+on:
+  schedule:
+    - cron: '*/5 * * * *' # Every 5 minutes
+jobs:
+  job:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check Tickets
+        uses: mooyoul/melon-ticket-actions@v1.1.0
+        with:
+          product-id: 211541
+          schedule-id: 100001
+          seat-id: 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43
+          slack-incoming-webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          message: '<@U088YBBMLN8> 달려달려~'
